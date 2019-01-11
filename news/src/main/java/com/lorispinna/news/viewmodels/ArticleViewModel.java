@@ -14,6 +14,7 @@ import java.util.concurrent.Callable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+import bolts.Continuation;
 import bolts.Task;
 import retrofit2.Response;
 
@@ -53,10 +54,16 @@ public class ArticleViewModel extends ViewModel {
      * get articles from SQL
      */
     private void getFromSql() {
+        Log.d("SQL_DB", "beforeCallDb: ");
+
         Task.callInBackground(new Callable<Void>() {
+            private static final String TAG = "SQL_DB";
             @Override
             public Void call() {
-                articles.postValue(DatabaseListSingleton.getInstance().getArticleDao().getAll());
+                List<Article> get = DatabaseListSingleton.getInstance().getArticleDao().getAll();
+                Log.d(TAG, "callDb: " + get.size());
+
+                articles.postValue(get);
                 return null;
             }
         });
@@ -75,6 +82,11 @@ public class ArticleViewModel extends ViewModel {
                 DatabaseListSingleton.getInstance().getArticleDao().insertAll(articles);
                 return null;
             }
-        });
+        }).continueWith(new Continuation<Void, Void>() {
+            @Override
+            public Void then(Task<Void> task) {
+                return null;
+            }
+        }, Task.UI_THREAD_EXECUTOR);
     }
 }

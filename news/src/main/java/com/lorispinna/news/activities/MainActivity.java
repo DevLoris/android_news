@@ -38,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Task.callInBackground(new Callable<ArticleDatabase>() {
             @Override
             public ArticleDatabase call() {
-                final ArticleDatabase db = Room.databaseBuilder(getApplicationContext(), ArticleDatabase.class, "article-db").build();
+                final ArticleDatabase db = Room.databaseBuilder(getApplicationContext(), ArticleDatabase.class, "article-db")
+                        .fallbackToDestructiveMigration()
+                        .build();
                 DatabaseListSingleton.getInstance().setArticleDatabase(db);
                 return db;
             }

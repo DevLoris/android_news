@@ -6,10 +6,16 @@ import java.util.Date;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity
-public class Article implements Serializable {
+@Entity(
+        foreignKeys = {@ForeignKey(entity = Source.class, parentColumns = "id_src", childColumns = "source_id")},
+        indices = {@Index("source_id")}
+)
+public class Article  implements Serializable {
     /*@PrimaryKey(autoGenerate = true)
     public int id;*/
 
@@ -32,6 +38,13 @@ public class Article implements Serializable {
 
     @ColumnInfo(name = "content")
     public String content;
+
+    public int source_id;
+
+    @Ignore
+    public Source source;
+
+    public boolean favorite;
 
     public Article() {
     }
@@ -83,5 +96,21 @@ public class Article implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Source getSource() {
+        return source;
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
     }
 }

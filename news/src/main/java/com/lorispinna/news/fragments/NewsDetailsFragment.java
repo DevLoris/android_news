@@ -86,4 +86,5 @@ public class NewsDetailsFragment extends CommonFragment {
         });
     }
 
+
 }

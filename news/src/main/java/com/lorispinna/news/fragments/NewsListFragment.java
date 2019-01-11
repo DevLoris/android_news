@@ -14,9 +14,11 @@ import com.lorispinna.news.listeners.ShareListener;
 import com.lorispinna.news.models.Article;
 import com.lorispinna.news.utils.Api;
 import com.lorispinna.news.utils.ArticleSingleton;
+import com.lorispinna.news.utils.DatabaseListSingleton;
 import com.lorispinna.news.viewmodels.ArticleViewModel;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,6 +26,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import bolts.Task;
 
 public class NewsListFragment extends CommonFragment implements NewsDetailsClickListener {
     private RecyclerView recyclerView;
@@ -81,5 +84,18 @@ public class NewsListFragment extends CommonFragment implements NewsDetailsClick
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, article.getTitle());
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, article.getUrl());
         getContext().startActivity(Intent.createChooser(sharingIntent, "Share using"));
+    }
+
+    @Override
+    public void onLikeListener(final Article article, final Integer integer) {
+        Task.callInBackground(new Callable<Void>() {
+            @Override
+            public Void call() {
+                article.setFavorite(!article.isFavorite());
+                DatabaseListSingleton.getInstance().getArticleDao().update(article);
+
+                return null;
+            }
+        });
     }
 }
