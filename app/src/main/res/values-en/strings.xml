@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Calculator</string>
+    <string name="num_1">i^0</string>
+    <string name="num_2">2</string>
+    <string name="num_3">ROUND(PI)</string>
+    <string name="num_4">2^2</string>
+    <string name="num_5">SQRT(25)</string>
+    <string name="num_6">3!</string>
+    <string name="num_7">777/111</string>
+    <string name="num_8">2^3</string>
+    <string name="num_9">9%10</string>
+    <string name="num_0">0/0</string>
+    <string name="num_equals">===</string>
+    <string name="num_virgul">.</string>
+    <string name="num_pulse">--</string>
+    <string name="num_minus">+-+---+</string>
+    <string name="num_multiply">*</string>
+    <string name="num_divide">:</string>
+    <string name="operation_add">OPERATION_ADD</string>
+    <string name="operation_subtract">OPERATION_SUBTRACT</string>
+    <string name="operation_multiply">OPERATION_MULTIPLY</string>
+    <string name="operation_divide">OPERATION_DIVIDE</string>
+    <string name="simple_name">Simple</string>
+    <string name="scientific_name">Scientifique</string>
+</resources>

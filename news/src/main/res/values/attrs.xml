@@ -1,0 +1,8 @@
+<resources>
+    <declare-styleable name="NewsAppTheme">
+        <attr name="backgroundPrimaryColor" format="color"/>
+        <attr name="backgroundSecondaryColor" format="color"/>
+        <attr name="textColor" format="color"/>
+        <attr name="colorAccent" format="color"/>
+    </declare-styleable>
+</resources>

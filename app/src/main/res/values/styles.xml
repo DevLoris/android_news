@@ -1,0 +1,74 @@
+<resources>
+
+    <style name="WinterMode" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="resultColor">@color/resultColor</item>
+        <item name="buttonColor">@color/buttonColor</item>
+        <item name="buttonColor_actions">@color/buttonColor_actions</item>
+        <item name="textColor">#ffffff</item>
+        <item name="iconDayTime">@drawable/ic_sun</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <item name="android:itemBackground">#FFFFFF</item>
+
+    </style>
+
+    <style name="SummerMode" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="resultColor">#EF7674</item>
+        <item name="buttonColor">#EC5766</item>
+        <item name="buttonColor_actions">#E84855</item>
+        <item name="textColor">#F2F2F3</item>
+        <item name="iconDayTime">@drawable/ic_moon_phase_outline</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <item name="android:itemBackground">#FFFFFF</item>
+
+    </style>
+
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <style name="Result">
+        <item name="android:gravity">top|bottom|right</item>
+        <item name="android:paddingRight">50dp</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:background">?attr/resultColor</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">50dp</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:textSize">30dp</item>
+        <item name="android:background">?attr/buttonColor</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="Button_Actions">
+        <item name="android:textSize">30dp</item>
+        <item name="android:background">?attr/buttonColor_actions</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="Button_Equals">
+        <item name="android:textSize">30dp</item>
+        <item name="android:background">?attr/buttonColor_actions</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="WinterMode.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="WinterMode.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

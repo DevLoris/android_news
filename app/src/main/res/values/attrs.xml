@@ -1,0 +1,9 @@
+<resources>
+    <declare-styleable name="CalculatorAppTheme">
+        <attr name="resultColor" format="color"/>
+        <attr name="buttonColor" format="color"/>
+        <attr name="buttonColor_actions" format="color"/>
+        <attr name="textColor" format="color"/>
+        <attr name="iconDayTime" format="string"/>
+    </declare-styleable>
+</resources>
