@@ -39,7 +39,8 @@ public class Article  implements Serializable {
     @ColumnInfo(name = "content")
     public String content;
 
-    public int source_id;
+
+    public Integer source_id;
 
     @Ignore
     public Source source;
