@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey;
 
 @Entity
 public class Source {
+    //@Expose(deserialize = false, serialize = false)
     @PrimaryKey(autoGenerate = true)
-    @Expose(deserialize = false, serialize = false)
-    public int id_src;
+    public Integer id_src;
 
     public String name;
 
@@ -22,11 +22,11 @@ public class Source {
         this.name = name;
     }
 
-    public int getId_src() {
+    public Integer getId_src() {
         return id_src;
     }
 
-    public void setId_src(int id_src) {
+    public void setId_src(Integer  id_src) {
         this.id_src = id_src;
     }
 }
