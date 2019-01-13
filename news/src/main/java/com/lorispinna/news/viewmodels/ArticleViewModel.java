@@ -85,8 +85,9 @@ public class ArticleViewModel extends ViewModel {
         }).continueWith(new Continuation<Void, Void>() {
             @Override
             public Void then(Task<Void> task) {
+                Log.d("YYYYY", "then: "  + task.getError());
                 return null;
             }
-        }, Task.UI_THREAD_EXECUTOR);
+        });
     }
 }
