@@ -41,12 +41,14 @@ public class MainActivity extends AppCompatActivity {
                 final ArticleDatabase db = Room.databaseBuilder(getApplicationContext(), ArticleDatabase.class, "article-db")
                         .fallbackToDestructiveMigration()
                         .build();
-                DatabaseListSingleton.getInstance().setArticleDatabase(db);
                 return db;
             }
         }).continueWith(new Continuation<ArticleDatabase, ArticleDatabase>() {
             @Override
             public ArticleDatabase then(final Task<ArticleDatabase> task) {
+                DatabaseListSingleton.getInstance().setArticleDatabase(task.getResult());
+
+
                 FragmentHelper.replace(MainActivity.this, R.id.app_content, new NewsListFragment());
                 return task.getResult();
             }
